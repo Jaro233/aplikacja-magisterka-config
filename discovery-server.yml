@@ -3,7 +3,7 @@
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${DISCOVERY_SERVER_URL:localhost}
   # standalone mode
   client:
     registerWithEureka: false
