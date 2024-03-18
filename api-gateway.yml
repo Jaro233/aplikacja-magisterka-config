@@ -2,10 +2,10 @@ zuul:
   prefix: /api
   ignoredServices: '*'
   routes:
-    vets-service: /vet/**
-    visits-service: /visit/**
-    customers-service: /customer/**
-    api-gateway: /gateway/**
+    ${VETS_URL:vets-service}: /vet/**
+    ${VISITS_URL:visits-service}: /visit/**
+    ${CUSTOMERS_URL:customers-service}: /customer/**
+    ${API_GATEWAY_URL:api-gateway}: /gateway/**
 
 server:
   port: 8080
