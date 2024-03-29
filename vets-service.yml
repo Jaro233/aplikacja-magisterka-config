@@ -22,3 +22,14 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery-server:8761/eureka/
+---
+spring:
+  profiles: mysql
+  datasource:
+    schema: classpath*:db/mysql/schema.sql
+    data: classpath*:db/mysql/data.sql
+    url: jdbc:mysql://localhost:3306/service_instance_db?useSSL=false&queryInterceptors=brave.mysql8.TracingQueryInterceptor&exceptionInterceptors=brave.mysql8.TracingExceptionInterceptor&zipkinServiceName&zipkinServiceName=localDockerDb
+    platform: mysql
+    username: root
+    password: petclinic
+    initialization-mode: never
