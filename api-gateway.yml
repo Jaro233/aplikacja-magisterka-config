@@ -57,6 +57,13 @@ spring:
       on-profile: docker
       cloud:
         gateway:
+          x-forwarded:  
+            enabled: true 
+            for-enabled: true 
+            proto-enabled: true 
+            host-append: false  
+            port-append: false  
+            proto-append: false
           routes:
             - id: vets-service
               uri: http://vets-service:8083
@@ -82,9 +89,9 @@ spring:
                 - Path=/api/external/**
               filters:
                 - StripPrefix=2
-#       zipkin:
-#         baseUrl: http://tracing-server:9411
-# eureka:
-#   client:
-#     serviceUrl:
-#       defaultZone: http://discovery-server:8761/eureka/
+      zipkin:
+        baseUrl: http://tracing-server:9411
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
