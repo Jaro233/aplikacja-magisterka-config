@@ -13,19 +13,19 @@ spring:
         proto-append: false
       routes:
         - id: vets-service
-          uri: http://vets-service:8083
+          uri: lb:http://vets-service
           predicates:
             - Path=/api/vet/**
           filters:
             - StripPrefix=2
         - id: visits-service
-          uri: http://visits-service:8082
+          uri: lb:http://visits-service
           predicates:
             - Path=/api/visit/**
           filters:
             - StripPrefix=2
         - id: customers-service
-          uri: http://customers-service:8081
+          uri: lb:http://customers-service
           predicates:
             - Path=/api/customer/**
           filters:
