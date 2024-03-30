@@ -18,7 +18,7 @@ spring:
             - Path=/api/customer/**
           filters:
             - StripPrefix=2
-        - id: visits-service
+        - id: visits-service-id
           uri: http://visits-service:8082
           predicates:
             - Path=/api/visit/**
