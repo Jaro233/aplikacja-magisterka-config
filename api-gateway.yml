@@ -12,10 +12,10 @@ spring:
         port-append: false
         proto-append: false
       routes:
-        - id: vets-service
-          uri: http://vets-service:8083
+        - id: customers-service
+          uri: http://customers-service:8081
           predicates:
-            - Path=/api/vet/**
+            - Path=/api/customer/**
           filters:
             - StripPrefix=2
         - id: visits-service
@@ -24,10 +24,10 @@ spring:
             - Path=/api/visit/**
           filters:
             - StripPrefix=2
-        - id: customers-service
-          uri: http://customers-service:8081
+        - id: vets-service
+          uri: http://vets-service:8083
           predicates:
-            - Path=/api/customer/**
+            - Path=/api/vet/**
           filters:
             - StripPrefix=2
         - id: show-me-google
