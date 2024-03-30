@@ -53,6 +53,33 @@ spring.messages.basename: messages/messages
 ---
 spring:
   profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: vets-service-docker
+          uri: http://vets-service:8083
+          predicates:
+            - Path=/api/vet/**
+          filters:
+            - StripPrefix=2
+        - id: visits-service-docker
+          uri: http://visits-service:8082
+          predicates:
+            - Path=/api/visit/**
+          filters:
+            - StripPrefix=2
+        - id: customers-service-docker
+          uri: http://customers-service:8081
+          predicates:
+            - Path=/api/customer/**
+          filters:
+            - StripPrefix=2
+        - id: external-service-docker
+          uri: https://www.external-service.com
+          predicates:
+            - Path=/api/external/**
+          filters:
+            - StripPrefix=2
   zipkin:
     baseUrl: http://tracing-server:9411
 eureka:
