@@ -1,4 +1,4 @@
-customers-service-id: http://customers-service.default.svc.cluster.local:8080
+customers-service-id: http://customers-service.default.svc.cluster.local:8082
 vists-service-id: http://vists-service.default.svc.cluster.local:8080
 
 spring:
@@ -25,7 +25,7 @@ spring:
           filters:
             - StripPrefix=2
         - id: visits-service
-          uri: http://visits-service.default.svc.cluster.local:8080
+          uri: http://visits-service.default.svc.cluster.local:8082
           predicates:
             - Path=/api/visit/**
           filters:
